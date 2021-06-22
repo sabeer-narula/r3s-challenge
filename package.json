@@ -1,0 +1,19 @@
+{
+  "name": "candidate-task-docker",
+  "version": "0.0.1",
+  "description": "risk3sixty docker task for engineering candidates.",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/yourMainScriptHere.js",
+    "test": "mocha --require ts-node/register --recursive './src/**/*.spec.ts'"
+  },
+  "author": "Lance Whatley",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.14.8",
+    "mocha": "^9.0.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.0.5"
+  }
+}
