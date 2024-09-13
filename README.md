@@ -1,3 +1,20 @@
+Candidate notes:
+
+I had a lot of fun doing this challenge! Everything went smoothly and I'm excited to talk about my process tomorrow.
+
+I believe your process to running should work, but just in case:
+
+cd into /risk3sixty challenge/candidate-task-docker/
+and either run:
+npm run build 
+then npm start
+
+or run:
+docker build -t r3scandidate .
+then docker run r3scandidate
+
+and both should give you the correct answer!
+
 # candidate-task-docker
 
 This is a fun little task for R&D/engineering candidates to accomplish to help us in understanding how you approach solving technical problems!

@@ -19,9 +19,20 @@ export default function Encryption(secret: string) {
       return `${cipherText}:${iv.toString('base64')}`
     },
 
+    // decrypts cipher text using the aes-256-ctr algorithm
     decrypt(ciphertext: string) {
-      // REDACTED, YOU SHOULD WRITE THE CODE TO DECRYPT THE CIPHERTEXT PROVIDED HERE
-      return ''
+
+      // splits ciphertext into the encrypted text and the initialization vector
+      const [encryptedText, ivBase64] = ciphertext.split(':')
+      const secret = getFilledSecret(this._secret)
+      const iv = Buffer.from(ivBase64, 'base64') // converts IV back to buffer
+      const { key } = getKeyAndIV(secret, iv)
+
+      // creates a decipher object using the algorithm, derived key, and IV
+      const decipher = crypto.createDecipheriv(this._algorithm, key, iv)
+      let decrypted = decipher.update(encryptedText, 'base64', 'utf8') // converts b64 to utf8 while decrypting
+      decrypted += decipher.final('utf8')
+      return decrypted
     },
   }
 }
